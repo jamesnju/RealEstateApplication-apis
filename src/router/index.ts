@@ -98,7 +98,9 @@ const routes = express.Router();
 
 // // Route to create a new product
 // // routes.post('/products', checkTokenBlacklist, authMiddleware, createProduct);
-routes.post('/property', passport.authenticate('jwt', {session:false}), upload.array('images', 10), postProperty);
+// routes.post('/property', passport.authenticate('jwt', {session:false}), upload.array('images', 10), postProperty);
+routes.post('/property', upload.array('images', 10), postProperty);
+
 routes.get("/properties", getProperties)
 routes.get("/:id/property", getPropertyById)
 routes.delete("/:id/property", deletePropertyById)
